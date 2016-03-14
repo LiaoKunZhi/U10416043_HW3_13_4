@@ -11,7 +11,26 @@ public class TestGregorianCalendar {
 
 		int year;
 		int month;
+		
+		//Make a determine
+		try {
+			year = Integer.valueOf(args[1]);
+			month = Integer.valueOf(args[0]);
 		}
+
+		catch (Exception ex1) {
+			try {
+				month = Integer.valueOf(args[0]);
+				year = calendar.get(Calendar.YEAR);
+			}
+			catch (Exception ex2) {
+				month = calendar.get(Calendar.MONTH) + 1;
+				year = calendar.get(Calendar.YEAR);
+			}
+		}
+
+		//Print calendar for the month of the year
+		printMonth(year, month);
 	}
 		//Print the calendar for a month in a year
 	public static void printMonth(int year, int month) {
